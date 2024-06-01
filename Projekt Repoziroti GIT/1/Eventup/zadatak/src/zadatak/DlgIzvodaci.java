@@ -98,8 +98,10 @@ public class DlgIzvodaci extends JDialog {
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
+			
+			JButton okButton = new JButton("OK");
+			buttonPane.add(okButton);
 			{
-				JButton okButton = new JButton("OK");
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
 						String SIzvodac = SIzvodaca.getText();
@@ -111,8 +113,8 @@ public class DlgIzvodaci extends JDialog {
 						try {						
 					 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 						  Connection conn = DriverManager.getConnection 
-			("jdbc:mysql://ucka.veleri.hr/rda?" +
-			 "user=vdavid&password=11");
+			("jdbc:mysql://ucka.veleri.hr/mmiskovic?" +
+			 "user=mmiskovic&password=11");
 						  //id, Sifra_izvodaca, Ime_izvodaca, Prezime_izvodaca, UmjetnickoIme_izvodaca,Kontakt_izvodaca
 						  String sql = "INSERT INTO film VALUES(NULL,?,?,?,?);";
 						  PreparedStatement stmt = conn.prepareStatement(sql);

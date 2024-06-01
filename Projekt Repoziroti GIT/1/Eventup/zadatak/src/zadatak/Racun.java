@@ -112,6 +112,7 @@ public class Racun extends JDialog {
 						String sifra_org = tfSifraOrganizatora.getText();
 						String sifra_nast = tfSifraNastupa.getText();
 						String datum_rac = tfDatumRac.getText();
+						
 
 						try {						
 						 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();

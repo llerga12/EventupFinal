@@ -105,7 +105,7 @@ public class Organizator extends JDialog {
 						try {						
 						 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 							  Connection conn = DriverManager.getConnection 
-				("jdbc:mysql://ucka.veleri.hr/llerga?" +
+				("jdbc:mysql://ucka.veleri.hr:3306/llerga?" +
 				 "user=llerga&password=11");
 							  //id, Sifra_organizatora, Naziv_organizatora, Kontakt_organizatora, Lokacija_organizatora
 							  String sql = "INSERT INTO Organizator VALUES(?,?,?,?);";
