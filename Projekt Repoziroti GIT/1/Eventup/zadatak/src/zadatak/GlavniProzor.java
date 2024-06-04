@@ -68,7 +68,8 @@ public class GlavniProzor {
 		btnNewButton_2.setBounds(141, 82, 140, 37);
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				Nastup dlg = new Nastup();
+				dlg.setVisible(true);
 			}
 		});
 		frmEventup.getContentPane().add(btnNewButton_2);
