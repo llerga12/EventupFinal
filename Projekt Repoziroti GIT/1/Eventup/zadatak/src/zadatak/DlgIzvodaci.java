@@ -44,7 +44,7 @@ public class DlgIzvodaci extends JDialog {
 	 */
 	public DlgIzvodaci() {
 		setTitle("Izvodaci");
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 399, 399);
 		getContentPane().setLayout(new BorderLayout());
 		contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		getContentPane().add(contentPanel, BorderLayout.CENTER);
@@ -101,6 +101,14 @@ public class DlgIzvodaci extends JDialog {
 			
 			JButton okButton = new JButton("OK");
 			buttonPane.add(okButton);
+			
+			JButton cancelButton = new JButton("Cancel");
+			cancelButton.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					dispose();
+				}
+			});
+			buttonPane.add(cancelButton);
 			{
 				okButton.addActionListener(new ActionListener() {
 					public void actionPerformed(ActionEvent e) {
@@ -135,7 +143,7 @@ public class DlgIzvodaci extends JDialog {
 										
 						} catch(Exception ex) {
 						  JOptionPane.showMessageDialog(null, 
-			   ex.getMessage(),"Gre≈°ka", JOptionPane.ERROR_MESSAGE);
+			   ex.getMessage(),"Greöka", JOptionPane.ERROR_MESSAGE);
 						}
 					}
 				});
