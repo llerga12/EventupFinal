@@ -15,6 +15,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 
 public class Nastup extends JDialog {
@@ -63,11 +64,11 @@ public class Nastup extends JDialog {
 		contentPanel.add(lblDatumnastupa);
 		
 		JLabel lblMjestonastupa = new JLabel("Mjesto_nastupa");
-		lblMjestonastupa.setBounds(36, 81, 95, 14);
+		lblMjestonastupa.setBounds(36, 112, 95, 14);
 		contentPanel.add(lblMjestonastupa);
 		
 		JLabel lblSifraizvodaca = new JLabel("Sifra_izvodaca");
-		lblSifraizvodaca.setBounds(36, 106, 95, 14);
+		lblSifraizvodaca.setBounds(36, 137, 95, 14);
 		contentPanel.add(lblSifraizvodaca);
 		
 		tfsn = new JTextField();
@@ -82,58 +83,68 @@ public class Nastup extends JDialog {
 		
 		tfmn = new JTextField();
 		tfmn.setColumns(10);
-		tfmn.setBounds(141, 78, 204, 20);
+		tfmn.setBounds(141, 109, 204, 20);
 		contentPanel.add(tfmn);
 		
 		tfsi = new JTextField();
 		tfsi.setColumns(10);
-		tfsi.setBounds(141, 103, 204, 20);
+		tfsi.setBounds(141, 134, 204, 20);
 		contentPanel.add(tfsi);
 		
 		JLabel lblNewLabel_1 = new JLabel("Sifra_racuna");
-		lblNewLabel_1.setBounds(36, 149, 103, 14);
+		lblNewLabel_1.setBounds(36, 165, 103, 14);
 		contentPanel.add(lblNewLabel_1);
 		
 		JLabel lblNewLabel_1_1 = new JLabel("Datum_racuna");
-		lblNewLabel_1_1.setBounds(36, 177, 103, 14);
+		lblNewLabel_1_1.setBounds(36, 193, 103, 14);
 		contentPanel.add(lblNewLabel_1_1);
 		
 		JLabel lblNewLabel_1_2 = new JLabel("Iznos_racuna");
-		lblNewLabel_1_2.setBounds(36, 211, 103, 14);
+		lblNewLabel_1_2.setBounds(36, 257, 103, 14);
 		contentPanel.add(lblNewLabel_1_2);
 		
 		JLabel lblNewLabel_1_3 = new JLabel("Sifra_organizatora");
-		lblNewLabel_1_3.setBounds(36, 236, 103, 14);
+		lblNewLabel_1_3.setBounds(36, 285, 103, 14);
 		contentPanel.add(lblNewLabel_1_3);
 		
 		JLabel lblNewLabel_1_4 = new JLabel("Sifra_nastupa");
-		lblNewLabel_1_4.setBounds(36, 261, 103, 14);
+		lblNewLabel_1_4.setBounds(36, 313, 103, 14);
 		contentPanel.add(lblNewLabel_1_4);
 		
 		tfsr = new JTextField();
 		tfsr.setColumns(10);
-		tfsr.setBounds(141, 146, 204, 20);
+		tfsr.setBounds(141, 162, 204, 20);
 		contentPanel.add(tfsr);
 		
 		tfdr = new JTextField();
 		tfdr.setColumns(10);
-		tfdr.setBounds(141, 174, 204, 20);
+		tfdr.setBounds(141, 190, 204, 20);
 		contentPanel.add(tfdr);
 		
 		tfir = new JTextField();
 		tfir.setColumns(10);
-		tfir.setBounds(141, 208, 204, 20);
+		tfir.setBounds(141, 254, 204, 20);
 		contentPanel.add(tfir);
 		
 		tfsn2 = new JTextField();
 		tfsn2.setColumns(10);
-		tfsn2.setBounds(141, 261, 204, 20);
+		tfsn2.setBounds(141, 313, 204, 20);
 		contentPanel.add(tfsn2);
 		
 		tfso = new JTextField();
-		tfso.setBounds(141, 233, 204, 20);
+		tfso.setBounds(141, 282, 204, 20);
 		contentPanel.add(tfso);
 		tfso.setColumns(10);
+		
+		JLabel lblNewLabel_2 = new JLabel("*Datum mora biti formata: \"YYYY-MM-DD\"");
+		lblNewLabel_2.setForeground(Color.RED);
+		lblNewLabel_2.setBounds(46, 218, 230, 14);
+		contentPanel.add(lblNewLabel_2);
+		
+		JLabel lblNewLabel_2_1 = new JLabel("*Datum mora biti formata: \"YYYY-MM-DD\"");
+		lblNewLabel_2_1.setForeground(Color.RED);
+		lblNewLabel_2_1.setBounds(46, 81, 230, 14);
+		contentPanel.add(lblNewLabel_2_1);
 		{
 			JPanel buttonPane = new JPanel();
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
