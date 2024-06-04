@@ -77,8 +77,6 @@ public class GlavniProzor {
 		JButton btnNewButton_3 = new JButton("Racun");
 		btnNewButton_3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Racun dlg = new Racun();
-				dlg.setVisible(true);
 			}
 		});
 		btnNewButton_3.setBounds(141, 178, 140, 37);

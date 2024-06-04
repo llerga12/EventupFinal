@@ -121,10 +121,10 @@ public class DlgIzvodaci extends JDialog {
 						try {						
 					 	  Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
 						  Connection conn = DriverManager.getConnection 
-			("jdbc:mysql://ucka.veleri.hr/mmiskovic?" +
-			 "user=mmiskovic&password=11");
+			("jdbc:mysql://ucka.veleri.hr/llerga?" +
+			 "user=llerga&password=11");
 						  //id, Sifra_izvodaca, Ime_izvodaca, Prezime_izvodaca, UmjetnickoIme_izvodaca,Kontakt_izvodaca
-						  String sql = "INSERT INTO film VALUES(NULL,?,?,?,?);";
+						  String sql = "INSERT INTO Izvodac VALUES(?,?,?,?,?);";
 						  PreparedStatement stmt = conn.prepareStatement(sql);
 						  stmt.setString(1,SIzvodac);
 						  stmt.setString(2, IIzvodac);
