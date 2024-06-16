@@ -1,7 +1,6 @@
 package zadatak;
 
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
@@ -9,77 +8,60 @@ import java.awt.event.ActionEvent;
 
 public class GlavniProzor {
 
-	private JFrame frmEventup;
+    private JFrame frmEventup;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GlavniProzor window = new GlavniProzor();
-					window.frmEventup.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    GlavniProzor window = new GlavniProzor();
+                    window.frmEventup.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
-	/**
-	 * Create the application.
-	 */
-	public GlavniProzor() {
-		initialize();
-	}
+    public GlavniProzor() {
+        initialize();
+    }
 
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frmEventup = new JFrame();
-		frmEventup.setTitle("EVENT-UP");
-		frmEventup.setBounds(100, 100, 450, 300);
-		frmEventup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		
-		JButton btnNewButton = new JButton("Organizator");
-		btnNewButton.setBounds(141, 130, 140, 37);
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Organizator dlg = new Organizator();
-				dlg.setVisible(true);
-			}
-		});
-		frmEventup.getContentPane().setLayout(null);
-		frmEventup.getContentPane().add(btnNewButton);
-		
-		JButton btnNewButton_1 = new JButton("Izvodac");
-		btnNewButton_1.setBounds(141, 34, 140, 37);
-		btnNewButton_1.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				DlgIzvodaci dlg = new DlgIzvodaci();
-				dlg.setVisible(true);
-			}
-		});
-		frmEventup.getContentPane().add(btnNewButton_1);
-		
-		JButton btnNewButton_2 = new JButton("Nastup");
-		btnNewButton_2.setBounds(141, 82, 140, 37);
-		btnNewButton_2.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				Nastup dlg = new Nastup();
-				dlg.setVisible(true);
-			}
-		});
-		frmEventup.getContentPane().add(btnNewButton_2);
-		
-		JButton btnNewButton_3 = new JButton("Racun");
-		btnNewButton_3.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		btnNewButton_3.setBounds(141, 178, 140, 37);
-		frmEventup.getContentPane().add(btnNewButton_3);
-	}
+    private void initialize() {
+        frmEventup = new JFrame();
+        frmEventup.setTitle("EVENT-UP");
+        frmEventup.setBounds(100, 100, 450, 300);
+        frmEventup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        JButton btnOrganizator = new JButton("Organizator");
+        btnOrganizator.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Organizator dialog = new Organizator();
+                dialog.setVisible(true);
+            }
+        });
+        btnOrganizator.setBounds(141, 130, 140, 37);
+        frmEventup.getContentPane().setLayout(null);
+        frmEventup.getContentPane().add(btnOrganizator);
+        
+        JButton btnIzvodac = new JButton("Izvodac");
+        btnIzvodac.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                DlgIzvodaci dialog = new DlgIzvodaci();
+                dialog.setVisible(true);
+            }
+        });
+        btnIzvodac.setBounds(141, 34, 140, 37);
+        frmEventup.getContentPane().add(btnIzvodac);
+        
+        JButton btnNastup = new JButton("Nastup");
+        btnNastup.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                Nastup dialog = new Nastup();
+                dialog.setVisible(true);
+            }
+        });
+        btnNastup.setBounds(141, 82, 140, 37);
+        frmEventup.getContentPane().add(btnNastup);
+    }
 }
