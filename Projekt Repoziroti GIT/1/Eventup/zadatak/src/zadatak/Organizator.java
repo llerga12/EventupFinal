@@ -25,7 +25,6 @@ public class Organizator extends JFrame {
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTextField textFieldSifra;
-    private JTextField textFieldNaziv;
     private JTextField textFieldKontakt;
     private JTextField textFieldLokacija;
     private JComboBox<String> comboBoxOrganizatori;
@@ -73,11 +72,6 @@ public class Organizator extends JFrame {
         contentPane.add(textFieldSifra);
         textFieldSifra.setColumns(10);
         
-        textFieldNaziv = new JTextField();
-        textFieldNaziv.setColumns(10);
-        textFieldNaziv.setBounds(167, 83, 213, 20);
-        contentPane.add(textFieldNaziv);
-        
         textFieldKontakt = new JTextField();
         textFieldKontakt.setColumns(10);
         textFieldKontakt.setBounds(167, 128, 213, 20);
@@ -89,14 +83,14 @@ public class Organizator extends JFrame {
         contentPane.add(textFieldLokacija);
         
         comboBoxOrganizatori = new JComboBox<>();
-        comboBoxOrganizatori.setBounds(167, 218, 213, 20);
+        comboBoxOrganizatori.setBounds(167, 83, 213, 20);
         contentPane.add(comboBoxOrganizatori);
         
         JButton btnUnesi = new JButton("Unesi");
         btnUnesi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String sifra = textFieldSifra.getText();
-                String naziv = textFieldNaziv.getText();
+                String naziv = (String) comboBoxOrganizatori.getSelectedItem(); // Uzimamo odabrani naziv iz ComboBox-a
                 String kontakt = textFieldKontakt.getText();
                 String lokacija = textFieldLokacija.getText();
                 
@@ -118,7 +112,7 @@ public class Organizator extends JFrame {
                     conn.close();
     
                     textFieldSifra.setText("");
-                    textFieldNaziv.setText("");
+                    comboBoxOrganizatori.setSelectedIndex(-1); // Resetiranje ComboBox-a
                     textFieldKontakt.setText("");
                     textFieldLokacija.setText("");
     
@@ -130,7 +124,7 @@ public class Organizator extends JFrame {
                 }
             }
         });
-        btnUnesi.setBounds(250, 249, 130, 23);
+        btnUnesi.setBounds(250, 215, 130, 23);
         contentPane.add(btnUnesi);
         
         popuniComboBoxOrganizatori(); // Pozivamo metodu za popunjavanje JComboBox-a
