@@ -64,7 +64,6 @@ public class GlavniProzor {
         btnNastup.setBounds(141, 82, 140, 37);
         frmEventup.getContentPane().add(btnNastup);
 
-        // Novo dugme za prikaz nastupa
         JButton btnPrikazNastupa = new JButton("Prikaz Nastupa");
         btnPrikazNastupa.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -74,5 +73,16 @@ public class GlavniProzor {
         });
         btnPrikazNastupa.setBounds(141, 180, 140, 37);
         frmEventup.getContentPane().add(btnPrikazNastupa);
+
+        // Novo dugme za prikaz izvodaca
+        JButton btnPrikazIzvodaca = new JButton("Prikaz Izvodaca");
+        btnPrikazIzvodaca.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                PrikazIzvodaca dialog = new PrikazIzvodaca();
+                dialog.setVisible(true);
+            }
+        });
+        btnPrikazIzvodaca.setBounds(141, 230, 140, 37);
+        frmEventup.getContentPane().add(btnPrikazIzvodaca);
     }
 }
