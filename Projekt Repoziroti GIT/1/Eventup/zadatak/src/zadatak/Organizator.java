@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -25,9 +24,9 @@ public class Organizator extends JFrame {
     private static final long serialVersionUID = 1L;
     private JPanel contentPane;
     private JTextField textFieldSifra;
+    private JTextField textFieldNaziv;
     private JTextField textFieldKontakt;
     private JTextField textFieldLokacija;
-    private JComboBox<String> comboBoxOrganizatori;
 
     public static void main(String[] args) {
         EventQueue.invokeLater(new Runnable() {
@@ -72,6 +71,11 @@ public class Organizator extends JFrame {
         contentPane.add(textFieldSifra);
         textFieldSifra.setColumns(10);
         
+        textFieldNaziv = new JTextField();
+        textFieldNaziv.setColumns(10);
+        textFieldNaziv.setBounds(167, 83, 213, 20);
+        contentPane.add(textFieldNaziv);
+        
         textFieldKontakt = new JTextField();
         textFieldKontakt.setColumns(10);
         textFieldKontakt.setBounds(167, 128, 213, 20);
@@ -82,15 +86,11 @@ public class Organizator extends JFrame {
         textFieldLokacija.setBounds(167, 173, 213, 20);
         contentPane.add(textFieldLokacija);
         
-        comboBoxOrganizatori = new JComboBox<>();
-        comboBoxOrganizatori.setBounds(167, 83, 213, 20);
-        contentPane.add(comboBoxOrganizatori);
-        
-        JButton btnUnesi = new JButton("Unesi");
+        JButton btnUnesi = new JButton("OK");
         btnUnesi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String sifra = textFieldSifra.getText();
-                String naziv = (String) comboBoxOrganizatori.getSelectedItem(); // Uzimamo odabrani naziv iz ComboBox-a
+                String naziv = textFieldNaziv.getText();
                 String kontakt = textFieldKontakt.getText();
                 String lokacija = textFieldLokacija.getText();
                 
@@ -112,51 +112,19 @@ public class Organizator extends JFrame {
                     conn.close();
     
                     textFieldSifra.setText("");
-                    comboBoxOrganizatori.setSelectedIndex(-1); // Resetiranje ComboBox-a
+                    textFieldNaziv.setText("");
                     textFieldKontakt.setText("");
                     textFieldLokacija.setText("");
     
-                    JOptionPane.showMessageDialog(null, "Podaci su uspjeöno uneseni.");
+                    JOptionPane.showMessageDialog(null, "Podaci su uspje≈°no uneseni.");
     
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Greöka prilikom unosa podataka: " + ex.getMessage(),
-                            "Greöka", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Gre≈°ka prilikom unosa podataka: " + ex.getMessage(),
+                            "Gre≈°ka", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
-        btnUnesi.setBounds(250, 215, 130, 23);
+        btnUnesi.setBounds(247, 227, 80, 23);
         contentPane.add(btnUnesi);
-        
-        popuniComboBoxOrganizatori(); // Pozivamo metodu za popunjavanje JComboBox-a
-    }
-    
-    // Metoda za popunjavanje JComboBox-a podacima iz baze
-    private void popuniComboBoxOrganizatori() {
-        try {
-            Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://ucka.veleri.hr/llerga?" +
-                    "user=llerga&password=11");
-
-            String sql = "SELECT Sifra_organizatora, Naziv_organizatora FROM Organizator";
-            PreparedStatement stmt = conn.prepareStatement(sql);
-            ResultSet rs = stmt.executeQuery();
-
-            List<String> organizatori = new ArrayList<>();
-            while (rs.next()) {
-                String sifra = rs.getString("Sifra_organizatora");
-                String naziv = rs.getString("Naziv_organizatora");
-                organizatori.add(sifra + " - " + naziv);
-            }
-
-            comboBoxOrganizatori.removeAllItems();
-            for (String org : organizatori) {
-                comboBoxOrganizatori.addItem(org);
-            }
-
-            conn.close();
-        } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Greöka prilikom dohvata organizatora: " + ex.getMessage(),
-                    "Greöka", JOptionPane.ERROR_MESSAGE);
-        }
     }
 }
