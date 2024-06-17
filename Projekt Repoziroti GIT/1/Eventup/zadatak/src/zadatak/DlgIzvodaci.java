@@ -99,7 +99,7 @@ public class DlgIzvodaci extends JDialog {
 			buttonPane.setLayout(new FlowLayout(FlowLayout.RIGHT));
 			getContentPane().add(buttonPane, BorderLayout.SOUTH);
 			
-			JButton okButton = new JButton("OK");
+			JButton okButton = new JButton("Unesi");
 			buttonPane.add(okButton);
 			
 			JButton cancelButton = new JButton("Cancel");
@@ -143,7 +143,7 @@ public class DlgIzvodaci extends JDialog {
 										
 						} catch(Exception ex) {
 						  JOptionPane.showMessageDialog(null, 
-			   ex.getMessage(),"Greška", JOptionPane.ERROR_MESSAGE);
+			   ex.getMessage(),"Greï¿½ka", JOptionPane.ERROR_MESSAGE);
 						}
 					}
 				});

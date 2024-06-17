@@ -6,10 +6,7 @@ import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -86,7 +83,7 @@ public class Organizator extends JFrame {
         textFieldLokacija.setBounds(167, 173, 213, 20);
         contentPane.add(textFieldLokacija);
         
-        JButton btnUnesi = new JButton("OK");
+        JButton btnUnesi = new JButton("Unesi");
         btnUnesi.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String sifra = textFieldSifra.getText();
@@ -124,7 +121,17 @@ public class Organizator extends JFrame {
                 }
             }
         });
-        btnUnesi.setBounds(247, 227, 80, 23);
+        btnUnesi.setBounds(210, 227, 80, 23);
         contentPane.add(btnUnesi);
+        
+        // Dodavanje Cancel dugmeta
+        JButton btnCancel = new JButton("Cancel");
+        btnCancel.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                dispose(); // Zatvara trenutni JFrame
+            }
+        });
+        btnCancel.setBounds(300, 227, 80, 23);
+        contentPane.add(btnCancel);
     }
 }
