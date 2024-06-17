@@ -63,5 +63,16 @@ public class GlavniProzor {
         });
         btnNastup.setBounds(141, 82, 140, 37);
         frmEventup.getContentPane().add(btnNastup);
+
+        // Novo dugme za prikaz nastupa
+        JButton btnPrikazNastupa = new JButton("Prikaz Nastupa");
+        btnPrikazNastupa.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                PrikazNastupa dialog = new PrikazNastupa();
+                dialog.setVisible(true);
+            }
+        });
+        btnPrikazNastupa.setBounds(141, 180, 140, 37);
+        frmEventup.getContentPane().add(btnPrikazNastupa);
     }
 }

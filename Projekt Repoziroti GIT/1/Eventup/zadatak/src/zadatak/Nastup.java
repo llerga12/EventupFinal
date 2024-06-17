@@ -35,7 +35,7 @@ public class Nastup extends JDialog {
     private JComboBox<String> comboBoxIzvodaci;
 
     /**
-     * Paljenje aplikacije
+     * Aplikacija
      */
     public static void main(String[] args) {
         try {
@@ -204,8 +204,8 @@ public class Nastup extends JDialog {
                     JOptionPane.showMessageDialog(null, "Podaci su uspješno uneseni.");
 
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Greška prilikom unosa podataka: " + ex.getMessage(),
-                            "Greška", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Greska prilikom unosa podataka: " + ex.getMessage(),
+                            "Greska", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -241,7 +241,7 @@ public class Nastup extends JDialog {
             while (rs.next()) {
                 String sifra = rs.getString("Sifra_organizatora");
                 String naziv = rs.getString("Naziv_organizatora");
-                organizatori.add(sifra); // Dodajemo samo šifru organizatora
+                organizatori.add(sifra); // Dodajemo samo Sifru organizatora
             }
 
             comboBoxOrganizatori.removeAllItems();
@@ -251,12 +251,12 @@ public class Nastup extends JDialog {
 
             conn.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Greška prilikom dohvata organizatora: " + ex.getMessage(),
-                    "Greška", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Greska prilikom dohvata organizatora: " + ex.getMessage(),
+                    "Greska", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    // Metoda za popunjavanje combo box-a izvođačima podacima iz baze
+    // Metoda za popunjavanje combo box-a izvodacima podacima iz baze
     private void popuniComboBoxIzvodaci() {
         try {
             Connection conn = DriverManager.getConnection(
@@ -271,7 +271,7 @@ public class Nastup extends JDialog {
             while (rs.next()) {
                 String sifra = rs.getString("Sifra_izvodaca");
                 String ime = rs.getString("Ime_Izvodaca");
-                izvodaci.add(sifra); // Dodajemo samo šifru izvođača
+                izvodaci.add(sifra); // Dodajemo samo sifru izvodaca
             }
 
             comboBoxIzvodaci.removeAllItems();
@@ -281,16 +281,16 @@ public class Nastup extends JDialog {
 
             conn.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Greška prilikom dohvata izvođača: " + ex.getMessage(),
-                    "Greška", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Greska prilikom dohvata izvođača: " + ex.getMessage(),
+                    "Greska", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    // Pomoćna metoda za dobivanje šifre iz selektiranog itema u JComboBox-u
+    // Pomocna metoda za dobivanje sifre iz selektiranog itema u JComboBox-u
     private String getSelectedSifra(JComboBox<String> comboBox) {
         String selectedItem = (String) comboBox.getSelectedItem();
         if (selectedItem != null) {
-            // Uzimamo samo prvi dio stringa do prvog razmaka (šifra je prije razmaka)
+            // Uzimamo samo prvi dio stringa do prvog razmaka (siifra je prije razmaka)
             return selectedItem.split("\\s+")[0];
         }
         return null;
