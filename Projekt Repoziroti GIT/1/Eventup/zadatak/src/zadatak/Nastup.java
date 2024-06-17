@@ -35,7 +35,7 @@ public class Nastup extends JDialog {
     private JComboBox<String> comboBoxIzvodaci;
 
     /**
-     * Aplikacija
+     * Paljenje aplikacije
      */
     public static void main(String[] args) {
         try {
@@ -51,7 +51,7 @@ public class Nastup extends JDialog {
      * Kreiranje dijaloga.
      */
     public Nastup() {
-    	setTitle("Nastup");
+        setTitle("Nastup");
         setBounds(100, 100, 742, 489);
         getContentPane().setLayout(new BorderLayout());
         contentPanel.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -201,11 +201,11 @@ public class Nastup extends JDialog {
                     tfsn2.setText("");
                     comboBoxOrganizatori.setSelectedIndex(-1);
 
-                    JOptionPane.showMessageDialog(null, "Podaci su uspje≈°no uneseni.");
+                    JOptionPane.showMessageDialog(null, "Podaci su uspjeöno uneseni.");
 
                 } catch (SQLException ex) {
-                    JOptionPane.showMessageDialog(null, "Greska prilikom unosa podataka: " + ex.getMessage(),
-                            "Greska", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Greöka prilikom unosa podataka: " + ex.getMessage(),
+                            "Greöka", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
@@ -223,10 +223,10 @@ public class Nastup extends JDialog {
         contentPanel.add(btnCancel);
 
         popuniComboBoxOrganizatori(); // Poziv metode za popunjavanje combo box-a organizatorima
-        popuniComboBoxIzvodaci(); // Poziv metode za popunjavanje combo box-a izvoƒëaƒçima
+        dohvatiKorisnike(); // Poziv metode za popunjavanje combo box-a izvoaËima
     }
 
-    // Metoda za popunjavanje combo box-a organizatorima podacima iz baze
+    
     private void popuniComboBoxOrganizatori() {
         try {
             Connection conn = DriverManager.getConnection(
@@ -241,7 +241,7 @@ public class Nastup extends JDialog {
             while (rs.next()) {
                 String sifra = rs.getString("Sifra_organizatora");
                 String naziv = rs.getString("Naziv_organizatora");
-                organizatori.add(sifra); // Dodajemo samo Sifru organizatora
+                organizatori.add(sifra + " " + naziv); // Dodajemo öifru i naziv organizatora
             }
 
             comboBoxOrganizatori.removeAllItems();
@@ -251,46 +251,46 @@ public class Nastup extends JDialog {
 
             conn.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Greska prilikom dohvata organizatora: " + ex.getMessage(),
-                    "Greska", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Greöka prilikom dohvata organizatora: " + ex.getMessage(),
+                    "Greöka", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    // Metoda za popunjavanje combo box-a izvodacima podacima iz baze
-    private void popuniComboBoxIzvodaci() {
+    
+    private void dohvatiKorisnike() {
         try {
             Connection conn = DriverManager.getConnection(
-                    "jdbc:mysql://ucka.veleri.hr/llerga?" +
-                    "user=llerga&password=11");
+                    "jdbc:mysql://ucka.veleri.hr/rda?" +
+                    "user=rda&password=11");
 
-            String sql = "SELECT Sifra_izvodaca, Ime_Izvodaca FROM Izvodac";
+            String sql = "SELECT id, korime FROM korisnik";
             PreparedStatement stmt = conn.prepareStatement(sql);
             ResultSet rs = stmt.executeQuery();
 
-            List<String> izvodaci = new ArrayList<>();
+            List<String> korisnici = new ArrayList<>();
             while (rs.next()) {
-                String sifra = rs.getString("Sifra_izvodaca");
-                String ime = rs.getString("Ime_Izvodaca");
-                izvodaci.add(sifra); // Dodajemo samo sifru izvodaca
+                int id = rs.getInt("id");
+                String korime = rs.getString("korime");
+                korisnici.add(id + " " + korime); // Dodajemo id i korisniËko ime
             }
 
             comboBoxIzvodaci.removeAllItems();
-            for (String izv : izvodaci) {
-                comboBoxIzvodaci.addItem(izv);
+            for (String korisnik : korisnici) {
+                comboBoxIzvodaci.addItem(korisnik);
             }
 
             conn.close();
         } catch (SQLException ex) {
-            JOptionPane.showMessageDialog(null, "Greska prilikom dohvata izvoƒëaƒça: " + ex.getMessage(),
-                    "Greska", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Greöka prilikom dohvata korisnika: " + ex.getMessage(),
+                    "Greöka", JOptionPane.ERROR_MESSAGE);
         }
     }
 
-    // Pomocna metoda za dobivanje sifre iz selektiranog itema u JComboBox-u
+    // PomoÊna metoda za dobivanje öifre iz selektiranog itema u JComboBox-u
     private String getSelectedSifra(JComboBox<String> comboBox) {
         String selectedItem = (String) comboBox.getSelectedItem();
         if (selectedItem != null) {
-            // Uzimamo samo prvi dio stringa do prvog razmaka (siifra je prije razmaka)
+            // Uzimamo samo prvi dio stringa do prvog razmaka (öifra je prije razmaka)
             return selectedItem.split("\\s+")[0];
         }
         return null;
