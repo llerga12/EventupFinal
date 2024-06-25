@@ -35,14 +35,6 @@ public class PrikazIzvodaca extends JDialog {
         JScrollPane scrollPane = new JScrollPane(table);
         getContentPane().add(scrollPane, BorderLayout.CENTER);
 
-        JButton btnRefresh = new JButton("Refresh");
-        btnRefresh.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                popuniTabelu();
-            }
-        });
-        getContentPane().add(btnRefresh, BorderLayout.SOUTH);
-
         popuniTabelu();
     }
 

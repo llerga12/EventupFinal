@@ -30,7 +30,7 @@ public class GlavniProzor {
     private void initialize() {
         frmEventup = new JFrame();
         frmEventup.setTitle("EVENT-UP");
-        frmEventup.setBounds(100, 100, 450, 300);
+        frmEventup.setBounds(100, 100, 590, 281); 
         frmEventup.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
         JButton btnOrganizator = new JButton("Organizator");
@@ -40,7 +40,7 @@ public class GlavniProzor {
                 dialog.setVisible(true);
             }
         });
-        btnOrganizator.setBounds(141, 130, 140, 37);
+        btnOrganizator.setBounds(28, 125, 140, 37);
         frmEventup.getContentPane().setLayout(null);
         frmEventup.getContentPane().add(btnOrganizator);
         
@@ -51,7 +51,7 @@ public class GlavniProzor {
                 dialog.setVisible(true);
             }
         });
-        btnIzvodac.setBounds(141, 34, 140, 37);
+        btnIzvodac.setBounds(28, 29, 140, 37);
         frmEventup.getContentPane().add(btnIzvodac);
         
         JButton btnNastup = new JButton("Nastup");
@@ -61,7 +61,7 @@ public class GlavniProzor {
                 dialog.setVisible(true);
             }
         });
-        btnNastup.setBounds(141, 82, 140, 37);
+        btnNastup.setBounds(28, 77, 140, 37);
         frmEventup.getContentPane().add(btnNastup);
 
         JButton btnPrikazNastupa = new JButton("Prikaz Nastupa");
@@ -71,10 +71,9 @@ public class GlavniProzor {
                 dialog.setVisible(true);
             }
         });
-        btnPrikazNastupa.setBounds(141, 180, 140, 37);
+        btnPrikazNastupa.setBounds(194, 77, 140, 37);
         frmEventup.getContentPane().add(btnPrikazNastupa);
 
-        // Novo dugme za prikaz izvodaca
         JButton btnPrikazIzvodaca = new JButton("Prikaz Izvodaca");
         btnPrikazIzvodaca.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -82,7 +81,37 @@ public class GlavniProzor {
                 dialog.setVisible(true);
             }
         });
-        btnPrikazIzvodaca.setBounds(141, 230, 140, 37);
+        btnPrikazIzvodaca.setBounds(194, 29, 140, 37);
         frmEventup.getContentPane().add(btnPrikazIzvodaca);
+
+        JButton btnPrikazOrganizatora = new JButton("Prikaz Organizatora");
+        btnPrikazOrganizatora.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                PrikazOrganizatora dialog = new PrikazOrganizatora();
+                dialog.setVisible(true);
+            }
+        });
+        btnPrikazOrganizatora.setBounds(194, 125, 140, 37);
+        frmEventup.getContentPane().add(btnPrikazOrganizatora);
+
+        JButton btnBrisanjeIzvodaca = new JButton("Brisanje Izvodaca");
+        btnBrisanjeIzvodaca.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                BrisanjeIzvodaca dialog = new BrisanjeIzvodaca();
+                dialog.setVisible(true);
+            }
+        });
+        btnBrisanjeIzvodaca.setBounds(358, 29, 140, 37);
+        frmEventup.getContentPane().add(btnBrisanjeIzvodaca);
+
+        JButton btnBrisanjeOrganizatora = new JButton("Brisanje Organizatora");
+        btnBrisanjeOrganizatora.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                BrisanjeOrganizatora dialog = new BrisanjeOrganizatora();
+                dialog.setVisible(true);
+            }
+        });
+        btnBrisanjeOrganizatora.setBounds(358, 125, 140, 37);
+        frmEventup.getContentPane().add(btnBrisanjeOrganizatora);
     }
 }

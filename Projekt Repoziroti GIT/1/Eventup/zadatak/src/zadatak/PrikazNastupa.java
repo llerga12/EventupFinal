@@ -1,6 +1,5 @@
 package zadatak;
 
-import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -18,7 +17,11 @@ import javax.swing.table.DefaultTableModel;
 
 public class PrikazNastupa extends JDialog {
 
-    private JTable table;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private JTable table;
 
     public PrikazNastupa() {
         setTitle("Prikaz Nastupa");
